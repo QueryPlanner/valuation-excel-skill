@@ -1,0 +1,126 @@
+
+<system_instructions>
+You are an expert financial analyst. Your task is to extract specific financial metrics from the provided 10-K and 10-Q documents strictly based on the defined accounting rules.
+</system_instructions>
+<input_context>
+Input Context See attached recent annual report. See attached recent quarterly report.
+</input_context>
+<extraction_rules>
+Extraction Rules:
+Timeframes for Financial Data: For all metrics in the "financial_data" section, extract both the Most Recent 12 Months (LTM) and the value from the Last 10-K prior to the LTM period. Bridge the gap using recent 10-Qs if mid-year. If the prior year's 10-K is missing, you must extract the prior year's data from the restated comparative columns/contexts within the current year's 10-K.
+Years since last 10K: If your most recent 12 months of data represent the most recent fiscal year, and your last 10K before LTM is the previous fiscal year, enter 1.00. If your most recent 12 months of data are midway through a fiscal year, enter the fraction of the most recent fiscal year is in this data. Thus, if your were valuing Amazon in Nov 2023, and using the trailing 12 months of data through September 2023, the 3rd quarter of the 2023 fiscal year, you would enter 0.75. Enter 0.5, if your data is through the second quarter, and 0.25, if is through the first quarter.
+Revenues: If the company had no revenues, enter a small positive number to provide a base for growth rates. Use compact units (e.g., millions).
+Revenue Splits (Region/Country & Business): Extract revenue breakdowns if available.
+By Region/Country: Map operating regions or countries to the following exact list. Use "Rest of the World" for ambiguous countries or regions: Africa, Asia, Australia & New Zealand, Caribbean, Central and South America, Eastern Europe, Middle East, North America, Western Europe, Rest of the World.
+By Business/Industry: Extract revenues and strictly map the company's reported business segments to the closest matching industry names from the <list_of_businesses> provided below. You MUST use only the exact industry names from that list as the keys in the "by_business" JSON object. Do not use the company's internal segment names.
+Operating income or EBIT: Locate this on the income statement. Calculate this by taking Operating Revenue and subtracting strictly operating expenses (e.g., Cost of Materials, Purchases, Inventory Changes, Employee Benefits, Depreciation & Amortization, and Other Operating Expenses). Do NOT simply take Profit Before Tax and add back Finance Costs, as this improperly includes Other Income and Exceptional Items.
+Interest expense: Pull this from the income statement. It is required to calculate the cost of debt.
+Cost of Capital Inputs (Debt): Extract the company's debt rating and the average maturity of its debt from the financial statements.
+Book value of equity: Locate Shareholders' Equity on the liability side of the balance sheet. This includes paid-in capital, retained earnings, and offset by treasury stock. Crucial: If the company lists minority or non-controlling interests separately, aggregate them into this total. This number can be negative.
+Book value of debt: Aggregate all interest-bearing debt (short-term, long-term, and short-term portion of long-term debt). Do not include accounts payable, supplier credit, or non-interest-bearing liabilities. You MUST explicitly search for and include both current and non-current portions of Borrowings AND Lease Liabilities. Be sure to check the Leases footnote or "Other Financial Liabilities" to find lease liabilities if they are grouped there.
+R&D expenses to capitalize: Treat R&D as capital expenses. You must identify the company's primary industry from the <list_of_businesses> below to determine the amortization period. You must pull the current year's R&D expense and the historical R&D expenses for previous years corresponding to that specific amortization period. If the required years of historical R&D expenses are missing from the provided statements, request the older financial statements needed in the missing_documents_required array.
+Cash and Marketable Securities: Found on the asset side of the balance sheet. You MUST aggregate Cash and Cash Equivalents, Bank Balances other than cash, and Current Investments/Marketable Securities.
+Cross holdings and other non-operating assets: Include only assets not already generating cash flows. Exclude Goodwill and Brand Name. Look for long-term minority investments. Extract minority holdings in other companies (unconsolidated). If marked to market, extract the number directly. If recorded at book value, extract the book value.
+Minority interests: Found on the liability side of the balance sheet. Represents equity in a cross-holding that your company has consolidated.
+Number of shares outstanding: If Available in the financial statements
+Effective tax rate: Compute this by taking the taxes paid (accrual number on the income statement) divided by the taxable income.
+Employee Options: Locate the employee compensation footnotes and extract: (1) Total number of options outstanding, (2) Weighted average exercise price, and (3) Average maturity of the options.
+</extraction_rules>
+<list_of_businesses>
+List of Businesses and R&D Amortization Periods Advertising (2), Aerospace/Defense (10), Air Transport (10), Aluminum (5), Apparel (3), Auto & Truck (10), Auto Parts (OEM) (5), Auto Parts (Replacement) (5), Bank (2), Bank (Canadian) (2), Bank (Foreign) (2), Bank (Midwest) (2), Beverage (Alcoholic) (3), Beverage (Soft Drink) (3), Building Materials (5), Cable TV (10), Canadian Energy (10), Cement & Aggregates (10), Chemical (Basic) (10), Chemical (Diversified) (10), Chemical (Specialty) (10), Coal/Alternate Energy (5), Computer & Peripherals (5), Computer Software & Svcs (3), Copper (5), Diversified Co. (5), Drug (10), Drugstore (3), Educational Services (3), Electric Util. (Central) (10), Electric Utility (East) (10), Electric Utility (West) (10), Electrical Equipment (10), Electronics (5), Entertainment (3), Environmental (5), Financial Services (2), Food Processing (3), Food Wholesalers (3), Foreign Electron/Entertn (5), Foreign Telecom. (10), Furn./Home Furnishings (3), Gold/Silver Mining (5), Grocery (2), Healthcare Info Systems (3), Home Appliance (5), Homebuilding (5), Hotel/Gaming (3), Household Products (3), Industrial Services (3), Insurance (Diversified) (3), Insurance (Life) (3), Insurance (Prop/Casualty) (3), Internet (3), Investment Co. (Domestic) (3), Investment Co. (Foreign) (3), Investment Co. (Income) (3), Machinery (10), Manuf. Housing/Rec Veh (5), Maritime (10), Medical Services (3), Medical Supplies (5), Metal Fabricating (10), Metals & Mining (Div.) (5), Natural Gas (Distrib.) (10), Natural Gas (Diversified) (10), Newspaper (3), Office Equip & Supplies (5), Oilfield Services/Equip. (5), Packaging & Container (5), Paper & Forest Products (10), Petroleum (Integrated) (5), Petroleum (Producing) (5), Precision Instrument (5), Publishing (3), R.E.I.T. (3), Railroad (5), Recreation (5), Restaurant (2), Retail (Special Lines) (2), Retail Building Supply (2), Retail Store (2), Securities Brokerage (2), Semiconductor (5), Semiconductor Cap Equip (5), Shoe (3), Steel (General) (5), Steel (Integrated) (5), Telecom. Equipment (10), Telecom. Services (5), Textile (5), Thrift (2), Tire & Rubber (5), Tobacco (5), Toiletries/Cosmetics (3), Trucking/Transp. Leasing (5), Utility (Foreign) (10), Water Utility (10).
+</list_of_businesses>
+<critical_rule>
+CRITICAL RULE 1: Strict Availability. All inputs must be extracted based strictly on availability in the provided financial statements. Do not estimate, calculate, or extrapolate any missing numbers unless explicitly instructed by a rule. If any required input is not available, you must strictly request the missing financial statements in the missing_documents_required array.
+CRITICAL RULE 2: Strict Industry Mapping. For "revenue_splits" -> "by_business", the industries in the <list_of_businesses> are the ONLY valid options. You are strictly forbidden from using the company's internal segment names.
+</critical_rule>
+<execution_instructions>
+Execution Instructions
+Read the footnotes to verify terms, accumulated NOLs, debt maturity profiles, and R&D figures.
+Do not output conversational text. Output must strictly conform to the JSON schema.
+</execution_instructions>
+<output_format>
+Output Format
+{
+  "financial_data": {
+    "Revenues": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Operating_income_or_EBIT": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Interest_expense": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Book_value_of_equity": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Book_value_of_debt": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Cash_and_Marketable_Securities": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Cross_holdings_and_other_non_operating_assets": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Minority_interests": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    }
+  },
+  "revenue_splits": {
+    "by_region": {
+      "Africa": 0.0,
+      "Asia": 0.0,
+      "Australia & New Zealand": 0.0,
+      "Caribbean": 0.0,
+      "Central and South America": 0.0,
+      "Eastern Europe": 0.0,
+      "Middle East": 0.0,
+      "North America": 0.0,
+      "Western Europe": 0.0,
+      "Rest of the World": 0.0
+    },
+    "by_business": {
+      "Industry_Name_Example_1": 0.0,
+      "Industry_Name_Example_2": 0.0
+    }
+  },
+  "cost_of_capital_inputs": {
+    "debt_rating": "N/A",
+    "average_maturity_of_debt_years": 0.0
+  },
+  "employee_options": {
+    "total_options_outstanding": 0.0,
+    "weighted_average_exercise_price": 0.0,
+    "average_maturity_years": 0.0
+  },
+  "r_and_d_details": {
+    "industry_name": "N/A",
+    "amortization_period_years": 0,
+    "current_year_expense": 0.0,
+    "historical_expenses": {
+      "Year_Minus_1": 0.0,
+      "Year_Minus_2": 0.0,
+      "Year_Minus_N": 0.0
+    }
+  },
+  "single_value_metrics": {
+    "Years_since_last_10K": 0.0,
+    "Number_of_shares_outstanding": 0.0,
+    "Effective_tax_rate": 0.0
+  },
+  "missing_documents_required": [
+    "List specifically requested reports here if data is missing, otherwise leave empty"
+  ]
+}
+</output_format>
+
+
