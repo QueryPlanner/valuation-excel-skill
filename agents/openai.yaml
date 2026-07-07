@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reliable SEC Valuation V3"
+  short_description: "Build and verify auditable Excel valuations"
+  default_prompt: "Use $valuation-excel-skill-v3 to build a verified, evidence-backed valuation run."

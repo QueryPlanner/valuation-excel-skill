@@ -1,0 +1,12 @@
+{
+  "SKILL.md": "e6c350438b0e8e63804797845f4ef36c411d693b36ceb225297fecbe11cf6a34",
+  "agents/openai.yaml": "c71df47d33dbde300f4742af63a929e7964043acbe93e9b92227242fb68ce8cc",
+  "fill_excel.py": "717e865b105dc21b1e048cef3422d717dc4a56bc5db1b160f874dd416ea17ad6",
+  "get_financial_reports.py": "a611d23ad5361c8202a9dc0f9300596fe53e5a616a89b7fdd47ef6b002ce211a",
+  "prompt.txt": "eb5afbe0e4c695e40f0927dfe5cecd45b55fda454475516d78e2a484c9a7ca95",
+  "template.xlsx": "3dc4706eff15392727bcbb1314d900799264a9a88c42c4d2f238ff0baa86359b",
+  "upload_to_sheets.py": "c2bfc8bcd79ed18c9ff2c421f44e1ff7d540cc77c28005868f352b71fea1e698",
+  "validate_inputs.py": "a27a856788b48fd7a8c10bdbdb192a6db61c470cf1b2c7c5b0e52990ba25b22e",
+  "valuation_theory.txt": "4368b93018e423ede875dc88134b6cb290b3eb10e28cd1f6a3bfe48b567059ac",
+  "workbook_contract.py": "2d8aae2fbd0a6d5283d81e774c61a1f7b31bf71a5cc23f45dd36ff94a5a8851f"
+}

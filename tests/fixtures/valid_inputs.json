@@ -1,0 +1,506 @@
+{
+  "schema_version": "2.0",
+  "company_context": {
+    "company_name": "Example Foods",
+    "valuation_date": "2026-01-02",
+    "ticker": "EXMPL",
+    "cik": "0000000001",
+    "country_of_incorporation": "United States",
+    "industry_us": "Food Processing",
+    "industry_global": "Food Processing",
+    "currency": "USD",
+    "units": "millions",
+    "fiscal_year_end": "December 31"
+  },
+  "filing_manifest": {
+    "manifest_version": "2.0",
+    "filings": [
+      {
+        "form": "10-K",
+        "accession_number": "0000000001-26-000001",
+        "report_date": "2025-12-31",
+        "html_url": "https://www.sec.gov/Archives/example-filing.htm",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    ]
+  },
+  "financial_data": {
+    "Revenues": {
+      "Most_Recent_12_months": 1000.0,
+      "Last_10K_before_LTM": 900.0
+    },
+    "Operating_income_or_EBIT": {
+      "Most_Recent_12_months": 150.0,
+      "Last_10K_before_LTM": 120.0
+    },
+    "Interest_expense": {
+      "Most_Recent_12_months": 20.0,
+      "Last_10K_before_LTM": 18.0
+    },
+    "Book_value_of_equity": {
+      "Most_Recent_12_months": 500.0,
+      "Last_10K_before_LTM": 450.0
+    },
+    "Book_value_of_debt": {
+      "Most_Recent_12_months": 200.0,
+      "Last_10K_before_LTM": 220.0
+    },
+    "Cash_and_Marketable_Securities": {
+      "Most_Recent_12_months": 100.0,
+      "Last_10K_before_LTM": 80.0
+    },
+    "Cross_holdings_and_other_non_operating_assets": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    },
+    "Minority_interests": {
+      "Most_Recent_12_months": 0.0,
+      "Last_10K_before_LTM": 0.0
+    }
+  },
+  "revenue_splits": {
+    "period_label": "FY 2025",
+    "period_revenue": 1000.0,
+    "geography_mode": "incorporation",
+    "by_country": {},
+    "by_region": {},
+    "by_business": {
+      "Food Processing": 1000.0
+    }
+  },
+  "cost_of_capital_inputs": {
+    "debt_rating": "N/A",
+    "average_maturity_of_debt_years": 5.0,
+    "synthetic_rating_company_type": 2,
+    "direct_erp": 0.05
+  },
+  "employee_options": {
+    "total_options_outstanding": 0.0
+  },
+  "operating_lease_details": {
+    "capitalize": false
+  },
+  "r_and_d_details": {
+    "current_year_expense": 0.0,
+    "historical_expenses": {}
+  },
+  "single_value_metrics": {
+    "Years_since_last_10K": 1.0,
+    "Number_of_shares_outstanding": 100.0,
+    "Effective_tax_rate": 0.23,
+    "Marginal_tax_rate": 0.25
+  },
+  "market_inputs": {
+    "stock_price": 25.0,
+    "riskfree_rate": 0.04,
+    "as_of_date": "2026-01-02"
+  },
+  "base_case_assumptions": {
+    "revenue_growth_next_year": 0.1,
+    "revenue_cagr_years_2_5": 0.08,
+    "operating_margin_next_year": 0.16,
+    "target_operating_margin": 0.2,
+    "margin_convergence_year": 5,
+    "sales_to_capital_years_1_5": 2.0,
+    "sales_to_capital_years_6_10": 1.5
+  },
+  "company_story": {
+    "title": "Disciplined branded-food growth",
+    "summary": "The company compounds revenue through pricing and modest volume growth while protecting returns on capital.",
+    "growth": "Near-term growth reflects pricing normalization and distribution gains.",
+    "profitability": "Margins expand gradually through mix and operating leverage.",
+    "tax": "The tax rate converges from the effective rate to the marginal rate.",
+    "reinvestment": "Capacity investment supports growth without acquisition dependence.",
+    "competitive_advantage": "Brand recognition and distribution provide a moderate moat.",
+    "risk": "Commodity inflation and retailer concentration are the principal risks."
+  },
+  "advanced_assumptions": {},
+  "source_evidence": [
+    {
+      "metric": "financial_data.Revenues.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Consolidated Statements of Operations",
+      "reported_label": "Net sales",
+      "calculation": "Reported annual value",
+      "value": 1000.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Revenues.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2024",
+      "section": "Consolidated Statements of Operations",
+      "reported_label": "Net sales",
+      "calculation": "Comparative annual value",
+      "value": 900.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Operating_income_or_EBIT.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Consolidated Statements of Operations",
+      "reported_label": "Operating income",
+      "calculation": "Reported annual value",
+      "value": 150.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Operating_income_or_EBIT.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2024",
+      "section": "Consolidated Statements of Operations",
+      "reported_label": "Operating income",
+      "calculation": "Comparative annual value",
+      "value": 120.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Interest_expense.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Debt note",
+      "reported_label": "Interest expense",
+      "calculation": "Reported annual value",
+      "value": 20.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Interest_expense.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2024",
+      "section": "Debt note",
+      "reported_label": "Interest expense",
+      "calculation": "Comparative annual value",
+      "value": 18.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Book_value_of_equity.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2025-12-31",
+      "section": "Consolidated Balance Sheets",
+      "reported_label": "Stockholders' equity",
+      "calculation": "Reported balance",
+      "value": 500.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Book_value_of_equity.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2024-12-31",
+      "section": "Consolidated Balance Sheets",
+      "reported_label": "Stockholders' equity",
+      "calculation": "Comparative balance",
+      "value": 450.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Book_value_of_debt.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2025-12-31",
+      "section": "Debt note",
+      "reported_label": "Total debt",
+      "calculation": "Current debt plus long-term debt",
+      "value": 200.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Book_value_of_debt.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2024-12-31",
+      "section": "Debt note",
+      "reported_label": "Total debt",
+      "calculation": "Comparative debt balance",
+      "value": 220.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Cash_and_Marketable_Securities.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2025-12-31",
+      "section": "Consolidated Balance Sheets",
+      "reported_label": "Cash and cash equivalents",
+      "calculation": "Reported balance",
+      "value": 100.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Cash_and_Marketable_Securities.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2024-12-31",
+      "section": "Consolidated Balance Sheets",
+      "reported_label": "Cash and cash equivalents",
+      "calculation": "Comparative balance",
+      "value": 80.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Cross_holdings_and_other_non_operating_assets.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2025-12-31",
+      "section": "Investment note",
+      "reported_label": "Non-operating investments",
+      "calculation": "No qualifying holdings disclosed",
+      "value": 0.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Cross_holdings_and_other_non_operating_assets.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2024-12-31",
+      "section": "Investment note",
+      "reported_label": "Non-operating investments",
+      "calculation": "No qualifying holdings disclosed",
+      "value": 0.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Minority_interests.Most_Recent_12_months",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2025-12-31",
+      "section": "Equity note",
+      "reported_label": "Noncontrolling interests",
+      "calculation": "No noncontrolling interest disclosed",
+      "value": 0.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "financial_data.Minority_interests.Last_10K_before_LTM",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2024-12-31",
+      "section": "Equity note",
+      "reported_label": "Noncontrolling interests",
+      "calculation": "No noncontrolling interest disclosed",
+      "value": 0.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "single_value_metrics.Years_since_last_10K",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Cover",
+      "reported_label": "Fiscal year ended",
+      "calculation": "Latest completed fiscal year",
+      "value": 1.0,
+      "units": "years"
+    },
+    {
+      "metric": "single_value_metrics.Number_of_shares_outstanding",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2026-01-02",
+      "section": "Cover",
+      "reported_label": "Shares outstanding",
+      "calculation": "Reported shares scaled to millions",
+      "value": 100.0,
+      "units": "millions"
+    },
+    {
+      "metric": "single_value_metrics.Effective_tax_rate",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Income tax note",
+      "reported_label": "Effective tax rate",
+      "calculation": "Income tax expense divided by pretax income",
+      "value": 0.23,
+      "units": "decimal"
+    },
+    {
+      "metric": "single_value_metrics.Marginal_tax_rate",
+      "source_type": "industry",
+      "source_url": "https://example.com/tax-source",
+      "period": "2026-01-02",
+      "calculation": "Applicable combined statutory rate",
+      "value": 0.25,
+      "units": "decimal"
+    },
+    {
+      "metric": "cost_of_capital_inputs.average_maturity_of_debt_years",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "2025-12-31",
+      "section": "Debt maturities",
+      "reported_label": "Principal maturities",
+      "calculation": "Principal-weighted average maturity",
+      "value": 5.0,
+      "units": "years"
+    },
+    {
+      "metric": "cost_of_capital_inputs.direct_erp",
+      "source_type": "industry",
+      "source_url": "https://example.com/erp-source",
+      "period": "2026-01-02",
+      "calculation": "Selected mature-market equity risk premium",
+      "value": 0.05,
+      "units": "decimal"
+    },
+    {
+      "metric": "market_inputs.stock_price",
+      "source_type": "market",
+      "source_url": "https://example.com/market-source",
+      "period": "2026-01-02",
+      "calculation": "Closing market price",
+      "value": 25.0,
+      "units": "USD per share"
+    },
+    {
+      "metric": "market_inputs.riskfree_rate",
+      "source_type": "market",
+      "source_url": "https://example.com/riskfree-source",
+      "period": "2026-01-02",
+      "calculation": "Currency-matched long-term government rate",
+      "value": 0.04,
+      "units": "decimal"
+    },
+    {
+      "metric": "revenue_splits.period_revenue",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Revenue note",
+      "reported_label": "Net sales",
+      "calculation": "Reported annual revenue",
+      "value": 1000.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "revenue_splits.by_business.Food Processing",
+      "source_type": "filing",
+      "accession_number": "0000000001-26-000001",
+      "source_url": "https://www.sec.gov/Archives/example-filing.htm",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "period": "FY 2025",
+      "section": "Revenue note",
+      "reported_label": "Net sales",
+      "calculation": "Single-business classification",
+      "value": 1000.0,
+      "units": "USD millions"
+    },
+    {
+      "metric": "base_case_assumptions.revenue_growth_next_year",
+      "source_type": "analyst_assumption",
+      "period": "FY 2026",
+      "calculation": "Base-case next-year growth",
+      "value": 0.1,
+      "units": "decimal",
+      "rationale": "Pricing and distribution gains support growth."
+    },
+    {
+      "metric": "base_case_assumptions.revenue_cagr_years_2_5",
+      "source_type": "analyst_assumption",
+      "period": "FY 2027-FY 2030",
+      "calculation": "Base-case compound annual growth",
+      "value": 0.08,
+      "units": "decimal",
+      "rationale": "Growth fades toward an industry-consistent rate."
+    },
+    {
+      "metric": "base_case_assumptions.operating_margin_next_year",
+      "source_type": "analyst_assumption",
+      "period": "FY 2026",
+      "calculation": "Base-case operating margin",
+      "value": 0.16,
+      "units": "decimal",
+      "rationale": "Mix and operating leverage modestly expand margin."
+    },
+    {
+      "metric": "base_case_assumptions.target_operating_margin",
+      "source_type": "analyst_assumption",
+      "period": "Year 5",
+      "calculation": "Target operating margin",
+      "value": 0.2,
+      "units": "decimal",
+      "rationale": "Scale and mix produce gradual convergence."
+    },
+    {
+      "metric": "base_case_assumptions.margin_convergence_year",
+      "source_type": "analyst_assumption",
+      "period": "Forecast",
+      "calculation": "Selected convergence year",
+      "value": 5,
+      "units": "year",
+      "rationale": "A five-year transition avoids an immediate step change."
+    },
+    {
+      "metric": "base_case_assumptions.sales_to_capital_years_1_5",
+      "source_type": "analyst_assumption",
+      "period": "Years 1-5",
+      "calculation": "Forecast sales-to-capital ratio",
+      "value": 2.0,
+      "units": "multiple",
+      "rationale": "Capacity investment supports moderate capital efficiency."
+    },
+    {
+      "metric": "base_case_assumptions.sales_to_capital_years_6_10",
+      "source_type": "analyst_assumption",
+      "period": "Years 6-10",
+      "calculation": "Forecast sales-to-capital ratio",
+      "value": 1.5,
+      "units": "multiple",
+      "rationale": "Capital efficiency fades toward mature economics."
+    }
+  ],
+  "missing_documents_required": []
+}
