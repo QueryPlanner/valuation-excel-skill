@@ -1,0 +1,31 @@
+name: ChatGPT export valuation skill
+
+on:
+  push:
+    branches:
+      - chatgpt/valuation-export-20260714
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Package valuation skill
+        uses: actions/upload-artifact@v4
+        with:
+          name: valuation-excel-skill-source
+          path: |
+            assets/template.xlsx
+            scripts
+            references
+            pyproject.toml
+            uv.lock
+            README.md
+            SKILL.md
+            tests/fixtures/valid_inputs.json
+          if-no-files-found: error
+          retention-days: 1
