@@ -1,6 +1,9 @@
 name: ChatGPT export valuation skill
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - chatgpt/valuation-export-20260714
