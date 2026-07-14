@@ -1,0 +1,40 @@
+name: ChatGPT pharma SEC data
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SEC_USER_AGENT: "OpenAI ChatGPT valuation research support@openai.com"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Install dependencies
+        run: uv sync --frozen
+      - name: Download SEC filings and company facts
+        shell: bash
+        run: |
+          set -euo pipefail
+          for ticker in LLY JNJ ABBV MRK AMGN; do
+            uv run python scripts/get_financial_reports.py \
+              --company "$ticker" \
+              --download-dir "downloads/$ticker" \
+              --output "downloads/${ticker}_reports.v2.json"
+          done
+      - name: Package data
+        uses: actions/upload-artifact@v4
+        with:
+          name: pharma-sec-data
+          path: downloads
+          if-no-files-found: error
+          retention-days: 1
